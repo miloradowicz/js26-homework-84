@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
+import { randomUUID } from 'crypto';
 
 import config from '../config';
-import { randomUUID } from 'crypto';
 
 export interface Fields {
   _id: mongoose.Types.ObjectId;

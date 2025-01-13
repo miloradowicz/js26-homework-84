@@ -1,9 +1,7 @@
 import express from 'express';
 
-import User from '../models/User';
-import Task from '../models/Task';
 import auth, { RequestWithUser } from '../middleware/auth';
-import { userInfo } from 'os';
+import Task from '../models/Task';
 
 const router = express.Router();
 
