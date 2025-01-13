@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 
-import { Status } from '../types';
 import User from './User';
 
 const schema = new mongoose.Schema(
@@ -16,7 +15,14 @@ const schema = new mongoose.Schema(
     },
     title: { type: String, required: [true, 'value is required'] },
     description: String,
-    status: { type: Status, required: [true, 'value is required'] },
+    status: {
+      type: String,
+      required: [true, 'value is required'],
+      validate: {
+        validator: async (value: string) => value === 'new' || value === 'in_progress' || value === 'complete',
+        message: 'invalid value. Allowed values are: new, in_progress, and complete',
+      },
+    },
     __v: { type: Number, select: false },
   },
   {
