@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 
 import config from './config';
 import users from './routers/users';
+import tasks from './routers/tasks';
 
 const app = express();
 
@@ -10,6 +11,7 @@ app.use(express.json());
 app.use(express.static('public'));
 
 app.use('/users', users);
+app.use('/tasks', tasks);
 
 (async () => {
   await mongoose.connect(new URL(config.mongo.db, config.mongo.host).href);

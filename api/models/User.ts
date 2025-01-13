@@ -5,6 +5,7 @@ import config from '../config';
 import { randomUUID } from 'crypto';
 
 export interface Fields {
+  _id: mongoose.Types.ObjectId;
   username: string;
   password: string;
   token: string;
